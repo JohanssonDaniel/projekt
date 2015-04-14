@@ -3,6 +3,7 @@
 int field[4][4];
 static const int MAXROW = 4;
 static const int MAXCOL = 4;
+static const int MAXSIZE = 4;
 static const int outside_field_right = 4;
 static const int outside_field_left = -1;
 bool hasMoved = false;
@@ -85,6 +86,31 @@ void randomInsertTwoOrFour() {
     }
 }
 
+bool gameOver(){
+    for (int row = 0; row < grid.numRows(); ++row) {
+        for (int col = 0; col < grid.numCols(); ++col) {
+            currentVal = field[row][col];
+
+            // ej klar ^
+
+            vector<int> xValues {col - 1,  col, col, col + 1};
+            vector<int> yValues {row, row + 1, row - 1,row};
+
+            int countAliveNeighbours = 0;
+            // Count neighbours algorithm
+            for (int i = 0; i < MAXSIZE; i++) {
+                if (xValues[i] < MAXCOL && xValues[i] >= 0
+                        && yValues[i] < MAXROW && yValues[i] >= 0) {
+                    if (field[yValues[i]][xValues[i]] == 0
+                            || currentVal == field[yValues[i]][xValues[i]]) {
+                        countAliveNeighbours++;
+                    }
+                }
+            }
+        }
+    }
+}
+
 int main()
 {
     char dir = ' ';
@@ -99,7 +125,7 @@ int main()
     randomInsertTwoOrFour();
 
 
-    //printField();
+    printField();
     cout << "Direction: ";
     cin >> dir;
     while(dir != 'q'){
@@ -117,6 +143,9 @@ int main()
 
         if (hasMoved) {
             randomInsertTwoOrFour();
+        }
+        if (gameOver()){
+            break;
         }
 
         printField();
