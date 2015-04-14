@@ -8,6 +8,7 @@ static const int outside_field_right = 4;
 static const int outside_field_left = -1;
 bool hasMoved = false;
 using namespace std;
+
 void printField(){
     for(int row = 0; row < MAXROW; row++){
         for(int col = 0; col < MAXCOL; col++){
@@ -39,8 +40,29 @@ bool canMergeRight(int row, int current_col){
         }
     }
 }
-void switchLeft(){
 
+bool canMergeLeft(int row, int current_col){
+
+    //cout << "currentVal: " << currentVal << endl;
+    for(int i = current_col; i > 0; i--){
+        int currentVal = field[row][current_col];
+        int neighbourVal = field[row][current_col - 1];
+        //Nästa granne till höger är 0
+        if (field[row][current_col - 1] == 0){
+            field[row][current_col] = 0;
+            field[row][current_col - 1] = currentVal;
+            //Vi fortsätter följa kolumnen åt höger
+            current_col--;
+        }
+        else if(currentVal == neighbourVal){
+            field[row][current_col] = 0;
+            field[row][current_col - 1] += currentVal;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
 
 void switchRight(){
@@ -67,6 +89,30 @@ void switchRight(){
     }
 }
 
+void switchLeft() {
+    //cout << "Switching field right..." << endl;
+    for(int row = 0; row < MAXROW; row++){
+        int current_col = 1;
+        while(current_col != outside_field_right){
+            int field_val = field[row][current_col];
+            //cout << "field_val: " << field_val << endl;
+            if (field_val == 0){
+                if (current_col == 3){
+                    break;
+                }else{
+                    current_col++;
+                }
+            }
+            else if(canMergeLeft(row, current_col)){
+                hasMoved = true;
+                current_col++;
+            }else{
+                current_col++;
+            }
+        }
+    }
+}
+
 void randomInsertTwoOrFour() {
     int twoOrFourList[5] = {2,2,2,2,4};
     int randNum = rand() % 5;
@@ -87,7 +133,7 @@ void randomInsertTwoOrFour() {
 }
 
 bool gameOver(){
-    for (int row = 0; row < grid.numRows(); ++row) {
+/*    for (int row = 0; row < grid.numRows(); ++row) {
         for (int col = 0; col < grid.numCols(); ++col) {
             currentVal = field[row][col];
 
@@ -109,6 +155,7 @@ bool gameOver(){
             }
         }
     }
+    */
 }
 
 int main()
@@ -144,9 +191,11 @@ int main()
         if (hasMoved) {
             randomInsertTwoOrFour();
         }
+        /*
         if (gameOver()){
             break;
         }
+        */
 
         printField();
         cout << "Direction: ";
