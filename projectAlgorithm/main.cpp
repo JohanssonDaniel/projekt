@@ -239,12 +239,12 @@ bool gameOver(){
         for (int col = 0; col < MAXCOL; ++col) {
             int currentVal = field[row][col];
 
-            vector<int> colValues {col - 1, /*col, col,*/ col + 1};
-            vector<int> rowValues {row    , /*row + 1 , row - 1,*/ row    };
+            vector<int> colValues {col - 1, col, col, col + 1};
+            vector<int> rowValues {row    , row + 1 , row - 1, row    };
 
             // Count neighbours algorithm
             // should be MAXSIZE, but is MAXSIZE 2 due to no up, won movement.
-            for (int i = 0; i < MAXSIZE-2; i++) {
+            for (int i = 0; i < MAXSIZE; i++) {
                 if (colValues[i] < MAXCOL && colValues[i] >= 0
                         && rowValues[i] < MAXROW && rowValues[i] >= 0) {
                     if (field[rowValues[i]][colValues[i]] == 0
