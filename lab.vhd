@@ -17,8 +17,7 @@ entity lab is
 		   vgaRed, vgaGreen : out  STD_LOGIC_VECTOR (2 downto 0);
 		   vgaBlue : out  STD_LOGIC_VECTOR (2 downto 1);
 		   ca,cb,cc,cd,ce,cf,cg,dp, Hsync,Vsync : out  STD_LOGIC;
-	       an : out  STD_LOGIC_VECTOR (3 downto 0));
-		   JA : in STD_LOGIC_VECTOR (7 downto 0);
+	       an : out  STD_LOGIC_VECTOR (3 downto 0);
 end lab;
 
 architecture Behavioral of lab is
@@ -86,9 +85,9 @@ begin
 			if rst = '1' then
 				--resetboard
 				movingBlockDirection = "00";
-			elsif	JA = '16'								--Vänster
+			elsif JA = '16' then								--Vänster
 				movingBlockDirection <= moveLeft;
-			elsif JA = '8'								--Höger
+			elsif JA = '8'	 then							--Höger
 				movingBlockDirection <= moveRight;
 			end if;
 		end if;
