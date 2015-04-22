@@ -12,8 +12,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity lab is
     Port ( clk,rst : in  STD_LOGIC;
-		   data : in STD_LOGIC (15 downto 0);
-		   JA : in STD_LOGIC_VECTOR (7 downto 0);					--Joystick input
+		   --JA : in STD_LOGIC_VECTOR (7 downto 0);					--Joystick input
 		   vgaRed, vgaGreen : out  STD_LOGIC_VECTOR (2 downto 0);
 		   vgaBlue : out  STD_LOGIC_VECTOR (2 downto 1);
 		   ca,cb,cc,cd,ce,cf,cg,dp, Hsync,Vsync : out  STD_LOGIC;
@@ -114,5 +113,6 @@ begin
 						tempRam(row)(((currentColumn+1)*4) downto (currentColumn*4)) <= columnVal + neighbuorVal;
 						tempRam(row)((currentColumn*4) downto ((currentColumn*4)-4)) <= 0;
 						--currentScore
+	end process;
 end Behavioral;
 
