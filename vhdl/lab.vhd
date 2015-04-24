@@ -53,6 +53,15 @@ architecture Behavioral of lab is
 	signal   clkctr           : STD_LOGIC_VECTOR (1 downto 0)              := "00"; 				-- Clock counter (mod 4 in design)
 	signal   srow             : STD_LOGIC_VECTOR (1 downto 0)              := "00";	
 	signal   sreg             : STD_LOGIC_VECTOR (0 to 15)             := "0000000000000000";	-- Register for sending current row to vga
+
+	---VGA
+	signal xctr,yctr : std_logic_vector(9 downto 0) := "0000000000";
+ 	alias rad : std_logic_vector(7 downto 0) is yctr(9 downto 2); -- i bildminnet
+ 	alias kol : std_logic_vector(7 downto 0) is xctr(9 downto 2);  -- i bildminnet
+ 	alias ypix : std_logic_vector(1 downto 0) is yctr(1 downto 0); -- storpixel är 4
+ 	alias xpix : std_logic_vector(1 downto 0) is xctr(1 downto 0);  -- storpixel är 4
+	signal hs : std_logic := '1';
+	signal vs : std_logic := '1';
 	
 	type ram_t is array (0 to 3) of std_logic_vector(0 to 15);			--Varje två potens representeras av en byte och vi har fyra på varje rad
 	
@@ -93,6 +102,69 @@ begin
 			end if;
 		end if;
 	end process;
+
+	--VGA/bild
+	process(clk) begin
+    if rising_edge(clk) then
+      if rst='1' then
+         xctr <= "0000000000";     -- bits 1023 som max, använder bara 799    
+      elsif clkctr=3 then
+       if xctr=799 then   
+         xctr <= "0000000000";
+       else
+         xctr <= xctr + 1;
+       end if;
+      end if;
+      -- 
+      if xctr=656 then        --640+16, se designskiss
+        hs <= '0';
+      elsif xctr=752 then   --640+16+96, se designskiss
+        hs <= '1';
+      end if;
+    end if;
+  end process;
+
+	--VGA/bild
+  process(clk) begin
+    if rising_edge(clk) then
+      if rst='1' then
+        yctr <= "0000000000";
+      elsif xctr=799 and clkctr=0 then
+       if yctr=520 then                  -- 521 i storlek
+         yctr <= "0000000000";
+       else
+         yctr <= yctr + 1;
+       end if;
+       --
+       if yctr=490 then     -- 480+10, se designskiss
+         vs <= '0';
+       elsif  yctr=492 then   -- 480+10+2, se designskiss
+         vs <= '1';
+       end if;
+      end if;
+    end if;
+  end process;
+  Hsync <= hs;
+  Vsync <= vs;
+
+	-- bildminne/spelplan
+  process(clk) begin
+    if rising_edge(clk) then
+      if ypix=0 and xpix=0 and clkctr=0 then
+        if kol<100 then
+          if rad<25 then
+            -- hämta ifrån tiles, sreg
+					elsif rad<50 then
+						--hämta ifrån tiles, sreg
+					elsif rad<75 then
+						--hämta ifrån tiles,sreg
+					elsif rad<100 then
+						--hämta ifrån tiles,sreg
+					end if;
+				end if;
+      end if;
+    end if;
+  end process;
 	
 	--joyStick
 	process(clk) begin
