@@ -1,0 +1,8 @@
+Release 12.4 Drc M.81d (lin)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+Mon Apr 27 10:28:55 2015
+
+drc -z design.ncd design.pcf
+
+DRC detected 0 errors and 0 warnings.

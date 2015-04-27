@@ -1,0 +1,8 @@
+vhdl work "../../../PmodJSTK_Demo.vhd"
+vhdl work "../../../ClkDiv_5Hz.vhd"
+vhdl work "../../../ClkDiv_66_67kHz.vhd"
+vhdl work "../../../PmodJSTK.vhd"
+vhdl work "../../../spiCtrl.vhd"
+vhdl work "../../../spiMode0.vhd"
+vhdl work "../../../ssdCtrl.vhd"
+vhdl work "../../../Binary_To_BCD.vhd"

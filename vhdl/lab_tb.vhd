@@ -12,17 +12,37 @@ ARCHITECTURE behavior OF lab_tb IS
   -- Component Declaration
   COMPONENT lab
     PORT(
-      clk,rst : IN std_logic;
-      ca,cb,cc,cd,ce,cf,cg,dp: OUT std_logic;       
-      an : OUT std_logic_vector(3 downto 0)
-      );
+      CLK : in  STD_LOGIC;								-- 100Mhz onboard clock
+           RST : in  STD_LOGIC;								-- Button D
+           MISO : in  STD_LOGIC;								-- Master In Slave Out, JA3
+           SW : in  STD_LOGIC_VECTOR (2 downto 0);		-- Switches 2, 1, and 0
+           SS : out  STD_LOGIC;								-- Slave Select, Pin 1, Port JA
+           MOSI : out  STD_LOGIC;							-- Master Out Slave In, Pin 2, Port JA
+           SCLK : out  STD_LOGIC;							-- Serial Clock, Pin 4, Port JA
+           LED : out  STD_LOGIC_VECTOR (2 downto 0);	-- LEDs 2, 1, and 0
+           AN : out  STD_LOGIC_VECTOR (3 downto 0);	-- Anodes for Seven Segment Display
+           SEG : out  STD_LOGIC_VECTOR (6 downto 0)); -- Cathodes for Seven Segment Display);
   END COMPONENT;
-
-  SIGNAL clk : std_logic := '0';
-  SIGNAL rst : std_logic := '0';
-  SIGNAL ca,cb,cc,cd,ce,cf,cg,dp : std_logic;
   SIGNAL an :  std_logic_vector(3 downto 0);
   signal tb_running : boolean := true;
+
+--Inputs
+  signal clk   : std_logic                    := '0';
+  signal rst   : std_logic                    := '0';
+  signal MISO  : std_logic                    := '0';
+  --signal MISO2 : std_logic                    := '0';
+  signal SW    : std_logic_vector(2 downto 0) := (others => '0');
+
+  --Outputs
+  signal SS       : std_logic;
+  --signal SS2      : std_logic;
+  signal MOSI     : std_logic;
+  --signal MOSI2    : std_logic;
+  signal SCLK     : std_logic;
+  --signal SCLK2    : std_logic;
+  signal LED : STD_LOGIC_VECTOR (2 downto 0);
+  signal AN  : STD_LOGIC_VECTOR (3 downto 0);
+  signal SEG : STD_LOGIC_VECTOR (6 downto 0);
   
 BEGIN
 
@@ -30,15 +50,14 @@ BEGIN
   uut: lab PORT MAP(
     clk => clk,
     rst => rst,
-    ca => ca,
-    cb => cb,     
-    cc => cc,  
-    cd => cd,
-    ce => ce,
-    cf => cf,
-    cg => cg,
-    dp => dp,
-    an => an);
+    an  => an, 
+    MISO     => MISO,
+    SW       => SW,
+    SS       => SS,
+    MOSI     => MOSI,
+    SCLK     => SCLK,
+    SEG      => SEG,
+    LED      => LED);
 
 
   clk_gen : process

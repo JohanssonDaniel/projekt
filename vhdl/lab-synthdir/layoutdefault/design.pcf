@@ -1,0 +1,43 @@
+//! **************************************************************************
+// Written by: Map M.81d on Fri Apr 24 17:21:40 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "an<0>" LOCATE = SITE "N16" LEVEL 1;
+COMP "an<1>" LOCATE = SITE "N15" LEVEL 1;
+COMP "an<2>" LOCATE = SITE "P18" LEVEL 1;
+COMP "an<3>" LOCATE = SITE "P17" LEVEL 1;
+COMP "dp" LOCATE = SITE "M13" LEVEL 1;
+COMP "clk" LOCATE = SITE "V10" LEVEL 1;
+COMP "JA<0>" LOCATE = SITE "T12" LEVEL 1;
+COMP "JA<1>" LOCATE = SITE "V12" LEVEL 1;
+COMP "JA<2>" LOCATE = SITE "N10" LEVEL 1;
+COMP "JA<3>" LOCATE = SITE "P11" LEVEL 1;
+COMP "JA<4>" LOCATE = SITE "M10" LEVEL 1;
+COMP "JA<5>" LOCATE = SITE "N9" LEVEL 1;
+COMP "ca" LOCATE = SITE "T17" LEVEL 1;
+COMP "cb" LOCATE = SITE "T18" LEVEL 1;
+COMP "JA<6>" LOCATE = SITE "U11" LEVEL 1;
+COMP "cc" LOCATE = SITE "U17" LEVEL 1;
+COMP "cd" LOCATE = SITE "U18" LEVEL 1;
+COMP "JA<7>" LOCATE = SITE "V11" LEVEL 1;
+COMP "ce" LOCATE = SITE "M14" LEVEL 1;
+COMP "cf" LOCATE = SITE "N14" LEVEL 1;
+COMP "cg" LOCATE = SITE "L14" LEVEL 1;
+TIMEGRP sys_clk_pin = BEL "joyReg_0" BEL "joyReg_1" BEL "joyReg_2" BEL
+        "joyReg_3" BEL "joyReg_4" BEL "joyReg_5" BEL "joyReg_6" BEL "joyReg_7"
+        BEL "joyReg_8" BEL "joyReg_9" BEL "joyReg_10" BEL "joyReg_11" BEL
+        "joyReg_12" BEL "joyReg_13" BEL "joyReg_14" BEL "joyReg_15" BEL
+        "led/counter_r_17" BEL "led/counter_r_16" BEL "led/counter_r_15" BEL
+        "led/counter_r_14" BEL "led/counter_r_13" BEL "led/counter_r_12" BEL
+        "led/counter_r_11" BEL "led/counter_r_10" BEL "led/counter_r_9" BEL
+        "led/counter_r_8" BEL "led/counter_r_7" BEL "led/counter_r_6" BEL
+        "led/counter_r_5" BEL "led/counter_r_4" BEL "led/counter_r_3" BEL
+        "led/counter_r_2" BEL "led/counter_r_1" BEL "led/counter_r_0" BEL
+        "led/segments_6" BEL "led/segments_5" BEL "led/segments_4" BEL
+        "led/segments_3" BEL "led/segments_2" BEL "led/segments_1" BEL
+        "led/segments_0" BEL "led/an_3" BEL "led/an_2" BEL "led/an_1" BEL
+        "led/an_0" BEL "clk_BUFGP/BUFG";
+TS_sys_clk_pin = PERIOD TIMEGRP "sys_clk_pin" 100 MHz HIGH 50%;
+SCHEMATIC END;
+

@@ -12,15 +12,17 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity leddriver is
     Port ( clk,rst : in  STD_LOGIC;
-           ca,cb,cc,cd,ce,cf,cg,dp : out  STD_LOGIC;
+           --seg : out STD_LOGIC_VECTOR (7 downto 0);
+	ca,cb,cc,cd,ce,cf,cg,dp, Hsync,Vsync : out  STD_LOGIC;
            an : out  STD_LOGIC_VECTOR (3 downto 0);
-           ledvalue : in  STD_LOGIC_VECTOR (15 downto 0));
+           ledvalue : in  STD_LOGIC_VECTOR (15 downto 0));	
 end leddriver;
 
 architecture Behavioral of leddriver is
 	signal segments : STD_LOGIC_VECTOR (6 downto 0);
 	signal counter_r :  unsigned(17 downto 0) := "000000000000000000";
 	signal v : STD_LOGIC_VECTOR (3 downto 0);
+	--signal dp : STD_LOGIC;
 begin
    ca <= segments(6);
    cb <= segments(5);
@@ -28,8 +30,9 @@ begin
    cd <= segments(3);
    ce <= segments(2);
    cf <= segments(1);
-   cg <= segments(0);
+   cg <= segments(0);	
    dp <= '1';
+   --seg <= (dp & segments);
 	
    with counter_r(17 downto 16) select
      v <= ledvalue(15 downto 12) when "00",

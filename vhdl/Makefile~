@@ -29,7 +29,7 @@
 # (Or proj2.simc, proj2.sim, etc, depending on the name of the
 # project)
 
-XILINX_INIT = source /sw/xilinx/ise_13.2i/ISE_DS/settings32.sh;
+XILINX_INIT = source /sw/xilinx/ise_12.4i/ISE_DS/settings32.sh;
 PART=xc6slx16-3-csg324
 
 
@@ -37,6 +37,9 @@ lab.%: S=lab.vhd leddriver.vhd
 lab.%: T=lab_tb.vhd
 lab.%: U=lab.ucf
 
+joytest.%: S = PmodJSTK_Demo.vhd ClkDiv_5Hz.vhd ClkDiv_66_67kHz.vhd PmodJSTK.vhd spiCtrl.vhd spiMode0.vhd ssdCtrl.vhd
+joytest.%: T = lab_tb.vhd 
+joytest.%: U = Nexys3_Master.ucf
 
 # Det här är ett exempel på hur man kan skriva en testbänk som är
 # relevant, även om man kör en simulering i batchläge (make batchlab.simc)
