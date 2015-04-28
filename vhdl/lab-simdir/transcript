@@ -9,6 +9,8 @@
 # //  AND IS SUBJECT TO LICENSE TERMS.
 # //
 # vsim lab_tb 
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Note: (vopt-143) Recognized '1' FSM/s in design unit 'lab.behavioral'.
 # Loading std.standard
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
@@ -16,4 +18,7 @@
 # Loading ieee.std_logic_arith(body)
 # Loading ieee.std_logic_unsigned(body)
 # Loading work.lab(behavioral)#1
-# Loading work.leddriver(behavioral)#1
+add wave -r /*
+run 500 us
+# ** Note: Reset released
+#    Time: 500 ns  Iteration: 1  Instance: /lab_tb

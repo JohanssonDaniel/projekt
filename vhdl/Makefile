@@ -35,7 +35,7 @@ PART=xc6slx16-3-csg324
 
 lab.%: S=lab.vhd leddriver.vhd
 lab.%: T=lab_tb.vhd
-lab.%: U=lab.ucf
+lab.%: U=Nexys3_Master.ucf
 
 joytest.%: S = PmodJSTK_Demo.vhd ClkDiv_5Hz.vhd ClkDiv_66_67kHz.vhd PmodJSTK.vhd spiCtrl.vhd spiMode0.vhd ssdCtrl.vhd Binary_To_BCD.vhd
 joytest.%: T = lab_tb.vhd 
@@ -44,7 +44,7 @@ joytest.%: U = Nexys3_Master.ucf
 # Det här är ett exempel på hur man kan skriva en testbänk som är
 # relevant, även om man kör en simulering i batchläge (make batchlab.simc)
 batchlab.%: S=lab.vhd leddriver.vhd
-batchlab.%: T=batchlab_tb.vhd tb_print7seg.vhd
+batchlab.%: T=batchl ab_tb.vhd tb_print7seg.vhd
 batchlab.%: U=lab.ucf
 
 
