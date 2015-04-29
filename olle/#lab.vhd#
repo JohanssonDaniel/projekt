@@ -1,0 +1,171 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx primitives in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity lab is
+    Port ( clk,rst, rx : in  STD_LOGIC;
+           seg: out  STD_LOGIC_VECTOR(7 downto 0);
+           an : out  STD_LOGIC_VECTOR (3 downto 0));
+end lab;
+
+architecture Behavioral of lab is
+    component leddriver
+    Port ( clk,rst : in  STD_LOGIC;
+           seg : out  STD_LOGIC_VECTOR(7 downto 0);
+           an : out  STD_LOGIC_VECTOR (3 downto 0);
+           value : in  STD_LOGIC_VECTOR (15 downto 0));
+    end component;
+    signal sreg : STD_LOGIC_VECTOR(9 downto 0) := B"0_00000000_0";  -- 10 bit skiftregister
+    signal tal : STD_LOGIC_VECTOR(15 downto 0) := X"0000";  
+    signal rx1,rx2 : std_logic;         -- vippor pÃ¥ insignalen
+    signal sp : std_logic;              -- skiftpuls
+    signal lp : std_logic;         -- laddpuls
+    signal pos : STD_LOGIC_VECTOR(1 downto 0) := "00";
+    signal count: STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+    signal count2: STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+    signal countbit: STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+begin
+  -- rst Ã¤r tryckknappen i mitten under displayen
+  -- *****************************
+  -- *  synkroniseringsvippor    *
+  -- *****************************
+
+  process(clk) begin
+    if rising_edge(clk) then
+      if rst='1' then
+      	rx1 <= '1';
+				rx2 <= '1';
+      else
+        rx1 <= rx;
+        rx2 <= rx1;
+      end if;
+    end if;
+  end process;
+        
+      
+  
+  -- *****************************
+  -- *       styrenhet           *
+  -- *****************************
+  
+  process(clk) begin
+                 if rising_edge(clk) then
+                   count <= count+1;
+                   if rst = '1' then
+                     sp <= '0';
+                     lp <= '0';
+                     count <= "0";
+                     count2 <= "0";
+                   else if count = 434 then
+                          sp <= '1';
+			else if count = 868 then
+                               count2 <= count2+1;
+                               count <= "0";
+                               if count2 = 10 then
+                                 lp <= '1';
+                                 count2 <= "0";
+                               end if;
+			else
+                          sp <= '0';
+                          lp <= '0';
+			end if;
+                   end if;
+                 end process;
+                   
+  -- *****************************
+  -- * 10 bit skiftregister      *
+  -- *****************************
+	process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				sreg(9 downto 0) <= (others =>'0');
+			else if sp = '1' then
+			
+				countbit <= countbit+1;
+				
+				sreg(9) <= rx2;
+				sreg(8) <= sreg(9);
+				sreg(7) <= sreg(8);
+				sreg(6) <= sreg(7);
+				sreg(5) <= sreg(6);
+				sreg(4) <= sreg(5);
+				sreg(3) <= sreg(4);
+				sreg(2) <= sreg(3);
+				sreg(1) <= sreg(2);
+				sreg(0) <= sreg(1);
+				
+				if countbit = "10" then
+					sreg()
+			
+			
+    
+
+  -- *****************************
+  -- * 2  bit register           *
+  -- *****************************
+  process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				pos <= "00";
+			else
+				case pos is
+					when "00" => if lp ='1' then pos <="01";
+						else pos <= "00";
+						end if;
+					when "01" => if lp ='1' then pos <="10";
+						else pos <= "00";
+						end if;
+					when "10" => if lp ='1' then pos <="11";
+						else pos <= "00";
+						end if;
+					when "11" => if lp ='1' then pos <="00";
+						else pos <= "00";
+						end if;
+					when others => lp <= "00";
+				end case;
+			end if;
+		end if;
+	end process;
+  
+
+  -- *****************************
+  -- * 16 bit register           *
+  -- *****************************
+  process(clk) begin
+		if rising_edge(clk) then
+			if rst='1' then
+				tal(15 downto 0) <= (others =>'0');
+			else if lp ='1' then
+				case pos is
+					when "00" then
+					  tal(3 downto 0) <= sreg(4 downto 1);
+						end if;
+					when "01" then
+						tal(7 downto 4) <= sreg(8 downto 5);
+						end if;
+					when "10" then
+					  tal(11 downto 8) <= sreg(4 downto 1);
+						end if;
+					when "11" then
+						tal(15 downto 12) <= sreg(8 downto 5);
+						end if;
+					--when others => lp <= "00";
+				end case;
+			end if;
+		end if;
+	end process;
+  -- *****************************
+  -- * Multiplexad display       *
+  -- *****************************
+  
+  led: leddriver port map (clk, rst, seg, an, tal);
+end Behavioral;
+

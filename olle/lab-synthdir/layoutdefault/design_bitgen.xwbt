@@ -1,0 +1,7 @@
+INFILE=/edu/piehe154/lab4/lab-synthdir/layoutdefault/design.ncd
+OUTFILE=/edu/piehe154/lab4/lab-synthdir/layoutdefault/design.bit
+FAMILY=Spartan6
+PART=xc6slx16-3csg324
+WORKINGDIR=/edu/piehe154/lab4/lab-synthdir/layoutdefault
+LICENSE=ISE
+USER_INFO=1777494980_210567422_043

@@ -1,0 +1,444 @@
+Release 12.4 - xst M.81d (lin64)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to tmpdir
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "design.prj"
+
+---- Target Parameters
+Output File Name                   : "design.ngc"
+Target Device                      : xc6slx16-3-csg324
+
+---- Source Options
+Top Module Name                    : lab
+
+=========================================================================
+
+WARNING:Xst:29 - Optimization Effort not specified
+The following parameters have been added:
+Optimization Goal                  : SPEED
+
+=========================================================================
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/edu/piehe154/lab4/lab-synthdir/xst/synth/../../../lab.vhd" into library work
+Parsing entity <lab>.
+Parsing architecture <Behavioral> of entity <lab>.
+Parsing VHDL file "/edu/piehe154/lab4/lab-synthdir/xst/synth/../../../leddriver.vhd" into library work
+Parsing entity <leddriver>.
+Parsing architecture <Behavioral> of entity <leddriver>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <lab> (architecture <Behavioral>) from library <work>.
+INFO:HDLCompiler:679 - "/edu/piehe154/lab4/lab-synthdir/xst/synth/../../../lab.vhd" Line 155. Case statement is complete. others clause is never selected
+
+Elaborating entity <leddriver> (architecture <Behavioral>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <lab>.
+    Related source file is "/edu/piehe154/lab4/lab.vhd".
+    Found 1-bit register for signal <rx2>.
+    Found 1-bit register for signal <go>.
+    Found 10-bit register for signal <count>.
+    Found 1-bit register for signal <sp>.
+    Found 1-bit register for signal <lp>.
+    Found 10-bit register for signal <count2>.
+    Found 10-bit register for signal <sreg>.
+    Found 2-bit register for signal <pos>.
+    Found 16-bit register for signal <tal>.
+    Found 1-bit register for signal <rx1>.
+    Found 10-bit adder for signal <count[9]_GND_5_o_add_0_OUT> created at line 64.
+    Found 10-bit adder for signal <count2[9]_GND_5_o_add_3_OUT> created at line 73.
+    Found 2-bit adder for signal <pos[1]_GND_5_o_add_19_OUT> created at line 132.
+    Found 16-bit 4-to-1 multiplexer for signal <pos[1]_tal[15]_wide_mux_22_OUT> created at line 146.
+    Summary:
+	inferred   3 Adder/Subtractor(s).
+	inferred  53 D-type flip-flop(s).
+	inferred   6 Multiplexer(s).
+Unit <lab> synthesized.
+
+Synthesizing Unit <leddriver>.
+    Related source file is "/edu/piehe154/lab4/leddriver.vhd".
+WARNING:Xst:647 - Input <rst> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+    Found 7-bit register for signal <segments>.
+    Found 4-bit register for signal <an>.
+    Found 18-bit register for signal <counter_r>.
+    Found 18-bit adder for signal <counter_r[17]_GND_7_o_add_2_OUT> created at line 1241.
+    Found 16x7-bit Read Only RAM for signal <v[3]_GND_7_o_wide_mux_3_OUT>
+    Found 4x4-bit Read Only RAM for signal <counter_r[17]_PWR_7_o_wide_mux_4_OUT>
+    Found 1-bit 4-to-1 multiplexer for signal <v<3>> created at line 39.
+    Found 1-bit 4-to-1 multiplexer for signal <v<2>> created at line 39.
+    Found 1-bit 4-to-1 multiplexer for signal <v<1>> created at line 39.
+    Found 1-bit 4-to-1 multiplexer for signal <v<0>> created at line 39.
+    Summary:
+	inferred   2 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  29 D-type flip-flop(s).
+	inferred   4 Multiplexer(s).
+Unit <leddriver> synthesized.
+RTL-Simplification CPUSTAT: 0.03 
+RTL-BasicInf CPUSTAT: 0.14 
+RTL-BasicOpt CPUSTAT: 0.00 
+RTL-Remain-Bus CPUSTAT: 0.01 
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x7-bit single-port Read Only RAM                    : 1
+ 4x4-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 4
+ 10-bit adder                                          : 2
+ 18-bit adder                                          : 1
+ 2-bit adder                                           : 1
+# Registers                                            : 13
+ 1-bit register                                        : 5
+ 10-bit register                                       : 3
+ 16-bit register                                       : 1
+ 18-bit register                                       : 1
+ 2-bit register                                        : 1
+ 4-bit register                                        : 1
+ 7-bit register                                        : 1
+# Multiplexers                                         : 10
+ 1-bit 2-to-1 multiplexer                              : 2
+ 1-bit 4-to-1 multiplexer                              : 4
+ 10-bit 2-to-1 multiplexer                             : 3
+ 16-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <lab>.
+The following registers are absorbed into accumulator <pos>: 1 register on signal <pos>.
+The following registers are absorbed into counter <count2>: 1 register on signal <count2>.
+Unit <lab> synthesized (advanced).
+
+Synthesizing (advanced) Unit <leddriver>.
+The following registers are absorbed into counter <counter_r>: 1 register on signal <counter_r>.
+INFO:Xst:3048 - The small RAM <Mram_v[3]_GND_7_o_wide_mux_3_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 7-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <v>             |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3048 - The small RAM <Mram_counter_r[17]_PWR_7_o_wide_mux_4_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 4-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <counter_r>     |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <leddriver> synthesized (advanced).
+WARNING:Xst:2677 - Node <sreg_0> of sequential type is unconnected in block <lab>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x7-bit single-port distributed Read Only RAM        : 1
+ 4x4-bit single-port distributed Read Only RAM         : 1
+# Adders/Subtractors                                   : 1
+ 10-bit adder                                          : 1
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 18-bit up counter                                     : 1
+# Accumulators                                         : 1
+ 2-bit up accumulator                                  : 1
+# Registers                                            : 51
+ Flip-Flops                                            : 51
+# Multiplexers                                         : 9
+ 1-bit 2-to-1 multiplexer                              : 2
+ 1-bit 4-to-1 multiplexer                              : 4
+ 10-bit 2-to-1 multiplexer                             : 2
+ 16-bit 4-to-1 multiplexer                             : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <lab> ...
+
+Optimizing unit <leddriver> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block lab, actual ratio is 1.
+
+Final Macro Processing ...
+
+Processing Unit <lab> :
+	Found 6-bit shift register for signal <sreg_4>.
+Unit <lab> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 75
+ Flip-Flops                                            : 75
+# Shift Registers                                      : 1
+ 6-bit shift register                                  : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : design.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 161
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 20
+#      LUT2                        : 11
+#      LUT3                        : 4
+#      LUT4                        : 26
+#      LUT5                        : 14
+#      LUT6                        : 27
+#      MUXCY                       : 26
+#      MUXF7                       : 2
+#      VCC                         : 1
+#      XORCY                       : 28
+# FlipFlops/Latches                : 82
+#      FD                          : 29
+#      FDE                         : 1
+#      FDR                         : 15
+#      FDRE                        : 35
+#      FDS                         : 2
+# Shift Registers                  : 1
+#      SRLC16E                     : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 14
+#      IBUF                        : 2
+#      OBUF                        : 12
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx16csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              82  out of  18224     0%  
+ Number of Slice LUTs:                  104  out of   9112     1%  
+    Number used as Logic:               103  out of   9112     1%  
+    Number used as Memory:                1  out of   2176     0%  
+       Number used as SRL:                1
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    111
+   Number with an unused Flip Flop:      29  out of    111    26%  
+   Number with an unused LUT:             7  out of    111     6%  
+   Number of fully used LUT-FF pairs:    75  out of    111    67%  
+   Number of unique control sets:         9
+
+IO Utilization: 
+ Number of IOs:                          15
+ Number of bonded IOBs:                  15  out of    232     6%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 83    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.993ns (Maximum Frequency: 250.438MHz)
+   Minimum input arrival time before clock: 4.284ns
+   Maximum output required time after clock: 3.597ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.993ns (frequency: 250.438MHz)
+  Total number of paths / destination ports: 1365 / 141
+-------------------------------------------------------------------------
+Delay:               3.993ns (Levels of Logic = 2)
+  Source:            count_1 (FF)
+  Destination:       count2_3 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: count_1 to count2_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             12   0.447   1.137  count_1 (count_1)
+     LUT5:I2->O            6   0.205   0.745  _n01111_SW0 (N41)
+     LUT6:I5->O           13   0.205   0.932  _n01111 (N14)
+     FDRE:CE                   0.322          count2_3
+    ----------------------------------------
+    Total                      3.993ns (1.179ns logic, 2.814ns route)
+                                       (29.5% logic, 70.5% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 55 / 53
+-------------------------------------------------------------------------
+Offset:              4.284ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       count_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            35   1.222   1.335  rst_IBUF (rst_IBUF)
+     LUT3:I2->O           20   0.205   1.092  Mcount_count2_val1 (Mcount_count2_val)
+     FDRE:R                    0.430          count2_0
+    ----------------------------------------
+    Total                      4.284ns (1.857ns logic, 2.427ns route)
+                                       (43.3% logic, 56.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            led/segments_6 (FF)
+  Destination:       seg<6> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: led/segments_6 to seg<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.447   0.579  led/segments_6 (led/segments_6)
+     OBUF:I->O                 2.571          seg_6_OBUF (seg<6>)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.993|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 4.22 secs
+ 
+--> 
+
+
+Total memory usage is 461160 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    3 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+
