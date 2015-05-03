@@ -4,68 +4,71 @@ K3
 cModel Technology
 Z0 d/edu/danjo732/TSEA83/projekt/olle/lab-simdir
 T_opt
-VC`2NcYXfOfW;e97OQB?m31
+VSJ>O;jSIidP9Bk_U1WQ^72
 04 6 8 work lab_tb behavior 1
-=1-c4346b771d7a-5541f620-e0368-1e9c
+=1-002128821460-5545e2f2-8fb74-6fe0
 o-quiet -auto_acc_if_foreign -work work
 n@_opt
 OE;O;6.5c;42
 Elab
-Z1 w1430392244
-Z2 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
-Z3 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
-Z4 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
-Z5 8../lab.vhd
-Z6 F../lab.vhd
+Z1 w1430591957
+Z2 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z3 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z4 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z5 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z6 8../lab.vhd
+Z7 F../lab.vhd
 l0
-L15
-V][m_L@Qb_gcz_ojzO2ODU3
-!s100 XnQW8`ffDmhI8IXOTWOl^1
-Z7 OE;C;6.5c;42
+L16
+VM:z_7GT@Tf>IC8_Ybg08a1
+Z8 OE;C;6.5c;42
 32
 o+acc
-Z8 tExplicit 1
+Z9 tExplicit 1
+!s100 NeQDCcZ<WZ@d43j>BdIIl2
 Asimple
 R2
 R3
 R4
-DEx4 work 3 lab 0 22 ][m_L@Qb_gcz_ojzO2ODU3
-l467
-L21
-VXCzYb5Kd940ZBWejG0a1I0
-R7
-32
-Z9 Mx3 4 ieee 14 std_logic_1164
-Mx2 4 ieee 18 std_logic_unsigned
-Z10 Mx1 4 ieee 15 std_logic_arith
-o+acc
+R5
+DEx4 work 3 lab 0 22 M:z_7GT@Tf>IC8_Ybg08a1
+l727
+L22
+VD=RJQf5zPaXeCL[B;zHK23
+!s100 f^5m[4VA??P24Y_9iR@dF2
 R8
-!s100 GKL>Qm>=@0<6RA[d=Z6h03
+32
+Mx4 4 ieee 14 std_logic_1164
+Mx3 4 ieee 18 std_logic_unsigned
+Mx2 4 ieee 15 std_logic_arith
+Z10 Mx1 4 ieee 11 numeric_std
+o+acc
+R9
 Elab_tb
-Z11 w1430381652
-Z12 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
-R4
-Z13 8../lab_tb.vhd
-Z14 F../lab_tb.vhd
+Z11 w1430476470
+R2
+R5
+Z12 8../lab_tb.vhd
+Z13 F../lab_tb.vhd
 l0
 L7
 VZo?INSN4U?0a;;?G:SiH50
-R7
-32
-o+acc
-R8
 !s100 nJ@;l[zm^_Z@Y75V5SVUS2
-Abehavior
-R12
-R4
-DEx4 work 6 lab_tb 0 22 Zo?INSN4U?0a;;?G:SiH50
-l29
-L10
-V7VT^5^O?[92nGzV^PzY<P1
-R7
-32
-Z15 Mx2 4 ieee 14 std_logic_1164
-Mx1 4 ieee 11 numeric_std
-o+acc
 R8
-!s100 ERka9Y<KzNl1dQ@JE<T7_0
+32
+o+acc
+R9
+Abehavior
+R2
+R5
+Z14 DEx4 work 6 lab_tb 0 22 Zo?INSN4U?0a;;?G:SiH50
+l32
+L10
+Z15 VDmZZ=z]M]2Yd^Y1ZF>Mik3
+Z16 !s100 [:ge0`K0e2AMenGAGS?K_3
+R8
+32
+Z17 Mx2 4 ieee 14 std_logic_1164
+R10
+o+acc
+R9

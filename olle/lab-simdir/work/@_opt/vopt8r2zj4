@@ -1,0 +1,75 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/edu/danjo732/TSEA83/projekt/olle/lab-simdir
+T_opt
+Z1 VSJ>O;jSIidP9Bk_U1WQ^72
+Z2 04 6 8 work lab_tb behavior 1
+Z3 =1-002128821460-5545e2f2-8fb74-6fe0
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.5c;42
+Elab
+Z7 w1430591957
+Z8 DPx17 __model_tech/ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z9 DPx17 __model_tech/ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z10 DPx17 __model_tech/ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z11 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+32
+Z12 8../lab.vhd
+Z13 F../lab.vhd
+l0
+L16
+Z14 VM:z_7GT@Tf>IC8_Ybg08a1
+Z15 OE;C;6.5c;42
+o+acc
+Z16 tExplicit 1
+Z17 !s100 NeQDCcZ<WZ@d43j>BdIIl2
+Asimple
+R8
+R9
+R10
+R11
+Z18 DEx49 /edu/danjo732/TSEA83/projekt/olle/lab-simdir/work 3 lab 0 22 M:z_7GT@Tf>IC8_Ybg08a1
+32
+Mx4 17 __model_tech/ieee 14 std_logic_1164
+Mx3 17 __model_tech/ieee 18 std_logic_unsigned
+Mx2 17 __model_tech/ieee 15 std_logic_arith
+Z19 Mx1 17 __model_tech/ieee 11 numeric_std
+l727
+L22
+Z20 VD=RJQf5zPaXeCL[B;zHK23
+R15
+o+acc
+R16
+Z21 !s100 f^5m[4VA??P24Y_9iR@dF2
+Elab_tb
+Z22 w1430476470
+R8
+R11
+32
+Z23 8../lab_tb.vhd
+Z24 F../lab_tb.vhd
+l0
+L7
+Z25 VZo?INSN4U?0a;;?G:SiH50
+R15
+o+acc
+R16
+Z26 !s100 nJ@;l[zm^_Z@Y75V5SVUS2
+Abehavior
+R18
+R8
+R11
+DEx49 /edu/danjo732/TSEA83/projekt/olle/lab-simdir/work 6 lab_tb 0 22 Zo?INSN4U?0a;;?G:SiH50
+32
+Mx2 17 __model_tech/ieee 14 std_logic_1164
+R19
+l32
+L10
+Z27 VDmZZ=z]M]2Yd^Y1ZF>Mik3
+R15
+o+acc
+R16
+Z28 !s100 [:ge0`K0e2AMenGAGS?K_3

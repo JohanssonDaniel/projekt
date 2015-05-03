@@ -12,31 +12,47 @@ ARCHITECTURE behavior OF lab_tb IS
   -- Component Declaration
   COMPONENT lab
     PORT(
-      clk,rst,rx : IN std_logic;
-      seg: OUT std_logic_vector(7 downto 0);       
-      an : OUT std_logic_vector(3 downto 0)
-      );
+      clk,rst : IN std_logic;
+		--vgaRed,vgaGreen :OUT std_logic_vector(2 downto 0);
+		--vgaBlue :OUT std_logic_vector(2 downto 1);      
+		--ca,cb,cc,cd,ce,cf,cg,dp, Hsync,Vsync: OUT std_logic;       
+		
+           seg: out  STD_LOGIC_VECTOR(7 downto 0);
+           an : out  STD_LOGIC_VECTOR (3 downto 0));
   END COMPONENT;
 
   SIGNAL clk : std_logic := '0';
   SIGNAL rst : std_logic := '0';
-  signal rx : std_logic := '1';
-  SIGNAL seg : std_logic_vector(7 downto 0);
+  --SIGNAL ca,cb,cc,cd,ce,cf,cg,dp,Hsync,Vsync : std_logic;
+  signal seg : std_logic_vector (7 downto 0);
   SIGNAL an :  std_logic_vector(3 downto 0);
-  SIGNAL tb_running : boolean := true;
-  -- alla bitar för 1234
-  SIGNAL rxs :  std_logic_vector(0 to 39) := "0100011001001001100101100110010001011001";
+  signal tb_running : boolean := true;
+  --signal vgaRed, vgaGreen : STD_LOGIC_VECTOR (2 downto 0);
+  --signal vgaBlue : STD_LOGIC_VECTOR (2 downto 1);
 BEGIN
 
   -- Component Instantiation
   uut: lab PORT MAP(
     clk => clk,
     rst => rst,
-    rx => rx,
-    seg => seg,
+	 --vgaRed => vgaRed,
+	 --vgaGreen => vgaGreen,
+    --vgaBlue => vgaBlue,
+	 --Hsync => Hsync,
+	 -- --Vsync => Vsync,
+    -- ca => ca,
+    -- cb => cb,     
+    -- cc => cc,  
+    -- cd => cd,
+    -- ce => ce,
+    -- cf => cf,
+    -- cg => cg,
+    -- dp => dp,
+	seg => seg,
     an => an);
 
 
+  -- 100 MHz system clock
   clk_gen : process
   begin
     while tb_running loop
@@ -61,13 +77,8 @@ BEGIN
                                         -- med klockan
     rst <= '0';
     report "Reset released" severity note;
-    wait for 1 us;
-    
-    for i in 0 to 39 loop
-      rx <= rxs(i);
-      wait for 8.68 us;
-    end loop;  -- i
-    
+
+
     for i in 0 to 50000000 loop         -- Vänta ett antal klockcykler
       wait until rising_edge(clk);
     end loop;  -- i
