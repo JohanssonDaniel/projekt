@@ -25,8 +25,8 @@ architecture simple of lab is
     	Port ( clk,rst : in  STD_LOGIC);
   	end component;
 	
-	SIGNAL readBuss : STD_LOGIC;
-	signal pFLAG 			: STD_LOGIC; 						--FLAGGA SÄTTS NÄR PC SKA INKREMENTERAS
+	SIGNAL readBuss 		: STD_LOGIC;						--Signalerar när data lagts på bussen och väntas hämta 
+	--signal pFLAG 			: STD_LOGIC; 						--FLAGGA SÄTTS NÄR PC SKA INKREMENTERAS
 
 	signal x,s8    : std_logic_vector(7 downto 0);
 	signal sALU    : std_logic_vector(8 downto 0);
@@ -81,135 +81,137 @@ architecture simple of lab is
 	type mem is array (0 to 255) of std_logic_vector(15 downto 0);
 	type instructionMem is array (0 to 127) of std_logic_vector(27 downto 0);
 	
-	constant instructionset : instructionMem := ( X"00f8000",  -- Laddsekvens
-                                                      X"008a000",
-                                                      X"0004100", 
-                                                      X"0078080",
-                                                      X"00fa080",
-                                                      X"0078000",
-                                                      X"00b8080",
-                                                      X"0240000",
-                                                      X"0980000",
-                                                      X"0138080",
-                                                      X"0380000",
-                                                      X"0041000",
-                                                      X"1a00800",
-                                                      X"000060f",
-                                                      X"000028c",
-                                                      X"0130180",
-                                                      X"0002000",
-                                                      X"02c0000",
-                                                      X"0840000",
-                                                      X"0118180",
-                                                      X"0000216",
-                                                      X"0002180",
-                                                      X"0002000",
-                                                      X"02c0000",
-                                                      X"0840000",
-                                                      X"0118180",
-                                                      X"0000780",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"00b0180",
-                                                      X"0190180",
-                                                      X"0380000",
-                                                      X"0880000",
-                                                      X"0130180",
-                                                      X"0380000",
-                                                      X"0a80000",
-                                                      X"0130180",
-                                                      X"0380000",
-                                                      X"0c80000",
-                                                      X"0130180",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000",
-                                                      X"0000000");
-	constant lab1upg2 : mem := (X"0cfe",
+	constant instructionset : instructionMem := ( 
+												  X"00f8000",  -- Laddsekvens
+											      X"008a000",
+												  X"0004100", 
+												  X"0078080",
+												  X"00fa080",
+												  X"0078000",
+												  X"00b8080",
+												  X"0240000",
+												  X"0980000",
+												  X"0138080",
+												  X"0380000",
+												  X"0041000",
+												  X"1a00800",
+												  X"000060f",
+												  X"000028c",
+												  X"0130180",
+												  X"0002000",
+												  X"02c0000",
+												  X"0840000",
+												  X"0118180",
+												  X"0000216",
+												  X"0002180",
+												  X"0002000",
+												  X"02c0000",
+												  X"0840000",
+												  X"0118180",
+												  X"0000780",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"00b0180",
+												  X"0190180",
+												  X"0380000",
+												  X"0880000",
+												  X"0130180",
+												  X"0380000",
+												  X"0a80000",
+												  X"0130180",
+												  X"0380000",
+												  X"0c80000",
+												  X"0130180",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000",
+												  X"0000000");
+	constant lab1upg2 : mem := (
+								X"0cfe",
 								X"4d02",
 								X"000f",
 								X"1cfd",
@@ -726,7 +728,7 @@ architecture simple of lab is
 	signal myM : instructionMem := instructionset;
 begin
 	--myPC
-	process(clk,rst) begin
+	myPC : process(clk,rst) begin
 		if rising_edge(clk) then
 			if rst = '1' then
 				myPC <= X"00";
@@ -745,7 +747,7 @@ begin
 	end process;
 
 	--myMRow
-	process(clk,rst) begin
+	myMRow : process(clk,rst) begin
 		if rising_edge(clk) then
 			if rst = '1' then
 				myMRow <= myM(0);
@@ -758,7 +760,7 @@ begin
 	end process;
 
 	--PM
-	process(clk,rst) begin
+	PM : process(clk,rst) begin
 		if rising_edge(clk) then
 			--if FB = "010" then 
 				--PM(conv_integer(ASR)) <= BUSS;
@@ -769,7 +771,7 @@ begin
 	end process;
 
 	 --BUSSEN
-	 process(clk,rst) begin
+	 BUSS : process(clk,rst) begin
 		if rising_edge(clk) then
 			 if rst = '1' then
 				 BUSS <= X"0000";
@@ -832,11 +834,11 @@ begin
 	end process;
 
 	--PC
-	process(clk,rst) begin
+	PC : process(clk,rst) begin
     if rising_edge(clk) then
 			if rst='1' then
 				PC <= X"00";
-			elsif pFLAG = '1' and not readBuss = '1' then
+			elsif P = '1' and not readBuss = '1' then
 				PC <= PC + 1;
 			elsif (FB = "011") and readBuss = '1' then
 				PC <= std_logic_vector(resize(UNSIGNED(BUSS),PC'LENGTH));
@@ -847,7 +849,7 @@ begin
 	end process;
 
 	--ASR FB(ADRESS REGISTER HÄMTAR FRÅN PM)
-	process(clk,rst)
+	ASR : process(clk,rst)
 		begin
 		if rising_edge(clk) then
 			if rst='1' then
@@ -859,7 +861,7 @@ begin
 	end process;
 
 	--HR (HJÄLP REGISTER)
-	process(clk,rst)
+	HR : process(clk,rst)
 		begin
 		if rising_edge(clk) then
 			if rst='1' then
@@ -872,7 +874,7 @@ begin
 
 
 	--IR (INSTRUKTIONS REGISTER)
-	process(clk,rst)
+	IR : process(clk,rst)
 		begin
 		if rising_edge(clk) then
 			if rst='1' then
@@ -885,7 +887,7 @@ begin
 
 
 	--MUX
-	process(clk,rst) begin
+	MUX : process(clk,rst) begin
 		if rising_edge(clk) then
 			if rst='1' then
 				GR0 <= X"0000";

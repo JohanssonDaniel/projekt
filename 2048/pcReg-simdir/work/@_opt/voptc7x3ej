@@ -1,0 +1,75 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/edu/danjo732/TSEA83/projekt/2048/pcReg-simdir
+T_opt
+Z1 V536;hSYFgW7M6]=8:E=Hd1
+Z2 04 8 8 work pcreg_tb behavior 1
+Z3 =1-c4346b771d83-5548b113-ce8b3-22fa
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.5c;42
+Epcreg
+Z7 w1430826783
+Z8 DPx17 __model_tech/ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z9 DPx17 __model_tech/ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z10 DPx17 __model_tech/ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z11 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+32
+Z12 8../pcReg.vhd
+Z13 F../pcReg.vhd
+l0
+L16
+Z14 Vbhd;2>RAfPzb9Y?;5GbCG2
+Z15 OE;C;6.5c;42
+o+acc
+Z16 tExplicit 1
+Z17 !s100 kBNSHKnVI`]FQ]fe]aK623
+Abehavorial
+R8
+R9
+R10
+R11
+Z18 DEx51 /edu/danjo732/TSEA83/projekt/2048/pcReg-simdir/work 5 pcreg 0 22 bhd;2>RAfPzb9Y?;5GbCG2
+32
+Mx4 17 __model_tech/ieee 14 std_logic_1164
+Mx3 17 __model_tech/ieee 18 std_logic_unsigned
+Mx2 17 __model_tech/ieee 15 std_logic_arith
+Z19 Mx1 17 __model_tech/ieee 11 numeric_std
+l28
+L26
+Z20 V@3j6]j]dakU55d4m<;Ihk1
+R15
+o+acc
+R16
+Z21 !s100 10RZSh;^D807PMmNY[1Un2
+Epcreg_tb
+Z22 w1430826883
+R8
+R11
+32
+Z23 8../pcReg_tb.vhd
+Z24 F../pcReg_tb.vhd
+l0
+L7
+Z25 VSUgM34L9G:d6EQYB9miVQ2
+R15
+o+acc
+R16
+Z26 !s100 gh19PBbL85@ccQ@Sih88m3
+Abehavior
+R18
+R8
+R11
+DEx51 /edu/danjo732/TSEA83/projekt/2048/pcReg-simdir/work 8 pcreg_tb 0 22 SUgM34L9G:d6EQYB9miVQ2
+32
+Mx2 17 __model_tech/ieee 14 std_logic_1164
+R19
+l30
+L10
+Z27 V_X;^<B9^nLJ0;ciJZZCMP1
+R15
+o+acc
+R16
+Z28 !s100 `RzT?=;fg:1_[Og>E[J2O3

@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/edu/danjo732/TSEA83/projekt/2048/myMem-simdir
+T_opt
+Z1 VIUiDjT9H;;jI7Lh9>>iN:0
+Z2 04 8 8 work mymem_tb behavior 1
+Z3 =1-c4346b771d83-5548bab8-ca23-29e7
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.5c;42
+Emymem
+Z7 w1430829685
+Z8 DPx17 __model_tech/ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z9 DPx17 __model_tech/ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z10 DPx17 __model_tech/ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z11 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+32
+Z12 8../myMem.vhd
+Z13 F../myMem.vhd
+l0
+L16
+Z14 VOhMGLNeA9Rkd3AHcl`f2B2
+Z15 OE;C;6.5c;42
+o+acc
+Z16 tExplicit 1
+Z17 !s100 Qa61H863OZJOlGYF9o5Eg2
+Abehavorial
+R8
+R9
+R10
+R11
+Z18 DEx51 /edu/danjo732/TSEA83/projekt/2048/myMem-simdir/work 5 mymem 0 22 OhMGLNeA9Rkd3AHcl`f2B2
+32
+Z19 Mx4 17 __model_tech/ieee 14 std_logic_1164
+Mx3 17 __model_tech/ieee 18 std_logic_unsigned
+Mx2 17 __model_tech/ieee 15 std_logic_arith
+Mx1 17 __model_tech/ieee 11 numeric_std
+l156
+L23
+Z20 VTIW?g`oe40WC=73_ljfii2
+R15
+o+acc
+R16
+Z21 !s100 0QcDKXJA]`Q4i1_PAdOKI1
+Emymem_tb
+Z22 w1430829741
+R9
+R10
+R8
+R11
+32
+Z23 8../myMem_tb.vhd
+Z24 F../myMem_tb.vhd
+l0
+L9
+Z25 VNen6DlR6PX`d4OAM^3SPB2
+R15
+o+acc
+R16
+Z26 !s100 [UVk[F?KmOdc4ko0;FXDL3
+Abehavior
+R18
+R9
+R10
+R8
+R11
+DEx51 /edu/danjo732/TSEA83/projekt/2048/myMem-simdir/work 8 mymem_tb 0 22 Nen6DlR6PX`d4OAM^3SPB2
+32
+R19
+Mx3 17 __model_tech/ieee 11 numeric_std
+Mx2 17 __model_tech/ieee 18 std_logic_unsigned
+Mx1 17 __model_tech/ieee 15 std_logic_arith
+l27
+L12
+Z27 VYdR^;UbNXBSC<>aDmBoa10
+R15
+o+acc
+R16
+Z28 !s100 0fYG@Jek;S0MKIW7FW5N:1
