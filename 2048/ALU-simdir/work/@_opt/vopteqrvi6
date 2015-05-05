@@ -1,0 +1,76 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/edu/danjo732/TSEA83/projekt/2048/ALU-simdir
+T_opt
+Z1 VZjY<J[5NSl2ELHagAZ0Wm3
+Z2 04 6 8 work alu_tb behavior 1
+Z3 =1-c4346b771d83-5548daee-3c8cb-378d
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.5c;42
+Ealu
+Z7 w1430834452
+Z8 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z9 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z10 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z11 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z12 8../ALU.vhd
+Z13 F../ALU.vhd
+l0
+L16
+Z14 VUZf8j4oT[Q9I6CAQo]gG20
+Z15 OE;C;6.5c;42
+32
+o+acc
+Z16 tExplicit 1
+Z17 !s100 GCUeIQ^D7ZDmEbPOOGDne3
+Abehavorial
+Z18 DPx17 __model_tech/ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z19 DPx17 __model_tech/ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z20 DPx17 __model_tech/ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z21 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z22 DEx49 /edu/danjo732/TSEA83/projekt/2048/ALU-simdir/work 3 alu 0 22 UZf8j4oT[Q9I6CAQo]gG20
+32
+Z23 Mx4 17 __model_tech/ieee 14 std_logic_1164
+Z24 Mx3 17 __model_tech/ieee 18 std_logic_unsigned
+Z25 Mx2 17 __model_tech/ieee 15 std_logic_arith
+Z26 Mx1 17 __model_tech/ieee 11 numeric_std
+l28
+L26
+Z27 Vj2X:WXd]dnB44>lbeId_90
+R15
+o+acc
+R16
+Z28 !s100 5B6iU[0R:hFN;iP>XJ3a@1
+Z29 w1430834047
+Ealu_tb
+Z30 w1430834638
+R8
+R11
+Z31 8../ALU_tb.vhd
+Z32 F../ALU_tb.vhd
+l0
+L7
+Z33 V862g8cKJWgD=Bd6MImlW13
+R15
+32
+o+acc
+R16
+Z34 !s100 SB<HQGoU^LkcjN`5zVjn_3
+Abehavior
+R22
+R18
+R21
+Z35 DEx49 /edu/danjo732/TSEA83/projekt/2048/ALU-simdir/work 6 alu_tb 0 22 862g8cKJWgD=Bd6MImlW13
+32
+Z36 Mx2 17 __model_tech/ieee 14 std_logic_1164
+R26
+l33
+L10
+Z37 V21aBc1XAYa17hdj:K7@AX2
+R15
+o+acc
+R16
+Z38 !s100 d]YIjg06Mi[Cz^2AcJU3K1
