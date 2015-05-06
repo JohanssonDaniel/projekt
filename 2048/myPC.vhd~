@@ -18,7 +18,7 @@ entity myPC is
 		clk,rst : in STD_LOGIC;
 		k1,k2 : in STD_LOGIC_VECTOR(7 downto 0);
 		SEQ : in STD_LOGIC_VECTOR(3 downto 0);
-		myPCOut : out STD_LOGIC_VECTOR(7 downto 0)
+		myPC_out : out STD_LOGIC_VECTOR(7 downto 0)
 	);
 end myPC;
 
@@ -26,19 +26,21 @@ architecture Behavorial of myPC is
 	SIGNAL myCounter : STD_LOGIC_VECTOR(7 downto 0);
 begin
 	process(clk,rst) begin
-		if rst = '1' then
+		if rising_edge(clk) then
+			if rst = '1' then
 				myCounter <= X"00";
-		else
-			case SEQ is
-				when "0000" => myCounter <= myCounter + 1; 
-				when "0001" => myCounter <= k1;
-				when "0010" => myCounter <= k2;
-				when "0011" => myCounter <= X"00";
-				when others => myCounter <= myCounter;
-			end case;
+			else
+				case SEQ is
+					when "0000" => myCounter <= myCounter + 1; 
+					when "0001" => myCounter <= k1;
+					when "0010" => myCounter <= k2;
+					when "0011" => myCounter <= X"00";
+					when others => myCounter <= myCounter;
+				end case;
+			end if;
 		end if;
 	end process;
 	
-	myPCOut <= myCounter;
+	my_out <= myCounter;
 end Behavorial;
 	

@@ -25,7 +25,7 @@ ARCHITECTURE behavior OF myPC_tb IS
 	
 	SIGNAL k1,k2 : STD_LOGIC_VECTOR(7 downto 0) := X"00"; 	
 	SIGNAL SEQ : STD_LOGIC_VECTOR(3 downto 0) := "0000";
-	SIGNAL myPCOut : STD_LOGIC_VECTOR(7 downto 0); 
+	SIGNAL myPCOut : STD_LOGIC_VECTOR(7 downto 0) := X"00"; 
   
 BEGIN
 

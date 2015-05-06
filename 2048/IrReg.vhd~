@@ -13,29 +13,30 @@ use IEEE.numeric_std.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity PCREG is
+entity IRREG is
 	port(
 		clk,rst : in STD_LOGIC;
-		bussDATA : in STD_LOGIC_VECTOR(15 downto 0);
-		P : in STD_LOGIC;
-		W : in STD_LOGIC;
-		PCOUT : out STD_LOGIC_VECTOR(15 downto 0)
+		FB : in STD_LOGIC_VECTOR(2 downto 0);
+		BUSSDATA : in STD_LOGIC_VECTOR(15 downto 0);
+		IROut : out STD_LOGIC_VECTOR(15 downto 0)
 	);
-end pcReg;
+end IRREG;
 
-architecture Behavorial of PCREG is 
-	SIGNAL PCounter : STD_LOGIC_VECTOR(15 downto 0);
+architecture Behavorial of IRREG is 
+	SIGNAL IR : STD_LOGIC_VECTOR(15 downto 0);
+	--IR (INSTRUKTIONS REGISTER)
 begin
-	process(clk,rst) begin
-		if rst = '1' then
-			PCounter <= X"0000";
-		elsif P = '1' then
-			PCounter <= pCounter + 1;
-		elsif w = '1' then
-			PCounter <= bussData;
+	process(clk,rst)
+		begin
+		if rising_edge(clk) then
+			if rst='1' then
+				IR <= X"0000";
+			elsif (FB="001") then
+				IR <= BUSSDATA;
+			end if;
 		end if;
 	end process;
 	
-	PCOut <= pCounter;
+	IROut <= IR;
 end Behavorial;
 	

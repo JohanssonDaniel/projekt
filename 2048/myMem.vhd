@@ -16,7 +16,7 @@ use IEEE.numeric_std.ALL;
 entity myMem is
 	port(
 		myPC : in STD_LOGIC_VECTOR(7 downto 0);
-		myRow : out STD_LOGIC_VECTOR(27 downto 0)
+		myMem_out : out STD_LOGIC_VECTOR(27 downto 0)
 	);
 end myMem;
 
@@ -155,7 +155,7 @@ architecture Behavorial of myMem is
                                                       
 begin
 	process (myPc) begin
-		myRow <= myMem(conv_integer(myPC));
+		myMem_out <= myMem(conv_integer(myPC));
 	end process;
 end Behavorial;
 	

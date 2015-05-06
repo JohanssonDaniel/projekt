@@ -1,0 +1,390 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir
+T_opt
+Z1 V7G;f2SQ8@BkFab[l`hhlm2
+Z2 04 11 8 work vhdl2048_tb behavior 1
+Z3 =1-c4346b756487-554a10e0-3d165-1c35
+Z4 o-quiet -auto_acc_if_foreign -work work
+Z5 n@_opt
+Z6 OE;O;6.5c;42
+Ealu
+Z7 w1430917260
+Z8 DPx17 __model_tech/ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z9 DPx17 __model_tech/ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z10 DPx17 __model_tech/ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z11 DPx17 __model_tech/ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+32
+Z12 8../ALU.vhd
+Z13 F../ALU.vhd
+l0
+L16
+Z14 VUZf8j4oT[Q9I6CAQo]gG20
+Z15 OE;C;6.5c;42
+o+acc
+Z16 tExplicit 1
+Z17 !s100 GCUeIQ^D7ZDmEbPOOGDne3
+Abehavorial
+R8
+R9
+R10
+R11
+Z18 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 3 alu 0 22 UZf8j4oT[Q9I6CAQo]gG20
+32
+Z19 Mx4 17 __model_tech/ieee 14 std_logic_1164
+Z20 Mx3 17 __model_tech/ieee 18 std_logic_unsigned
+Z21 Mx2 17 __model_tech/ieee 15 std_logic_arith
+Z22 Mx1 17 __model_tech/ieee 11 numeric_std
+l28
+L26
+Z23 V<BmYIV:ZY??I3Q<hMID_13
+R15
+o+acc
+R16
+Z24 !s100 g_@>I@i1EnTPlho?UI<Qn1
+Egeneral_reg
+Z25 w1430917274
+R8
+R9
+R10
+R11
+32
+Z26 8../general_reg.vhd
+Z27 F../general_reg.vhd
+l0
+L16
+Z28 VQm]2=5O1^]Z7BC6WggeBm2
+R15
+o+acc
+R16
+Z29 !s100 jDZOl;8[TWRJYP@fZLRf12
+Abehavorial
+R8
+R9
+R10
+R11
+Z30 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 11 general_reg 0 22 Qm]2=5O1^]Z7BC6WggeBm2
+32
+R19
+R20
+R21
+R22
+l27
+L25
+Z31 VIT72OG`d64LXb5:G>j?_S2
+R15
+o+acc
+R16
+Z32 !s100 WmzDU2AJo2WPnI8OF??9<3
+Ek1
+Z33 w1430917337
+R8
+R9
+R10
+R11
+32
+Z34 8../k1.vhd
+Z35 F../k1.vhd
+l0
+L16
+Z36 V7OXj75;2^jnn3:Uo=n`li1
+R15
+o+acc
+R16
+Z37 !s100 _^dU=Ve4CkESTClU2[dMD1
+Abehavorial
+R8
+R9
+R10
+R11
+Z38 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 2 k1 0 22 7OXj75;2^jnn3:Uo=n`li1
+32
+R19
+R20
+R21
+R22
+l43
+L24
+Z39 V[K3;>9>ldC`18IaFoSTAb1
+R15
+o+acc
+R16
+Z40 !s100 z`eXH25ZYl:@`^cD][Ei=3
+Ek2
+Z41 w1430917331
+R8
+R9
+R10
+R11
+32
+Z42 8../k2.vhd
+Z43 F../k2.vhd
+l0
+L16
+Z44 VKS3gc9T4j_HSGi7ln1_PC2
+R15
+o+acc
+R16
+Z45 !s100 QE4m5SEL8cTi[W>NNam6G0
+Abehavorial
+R8
+R9
+R10
+R11
+Z46 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 2 k2 0 22 KS3gc9T4j_HSGi7ln1_PC2
+32
+R19
+R20
+R21
+R22
+l31
+L24
+Z47 VCSiQMLH4IMkee<:5Xgm?50
+R15
+o+acc
+R16
+Z48 !s100 QgO:TVcSKPNCU?PW^bCPT2
+Emux
+Z49 w1430917292
+R8
+R9
+R10
+R11
+32
+Z50 8../Mux.vhd
+Z51 F../Mux.vhd
+l0
+L16
+Z52 V3fi=a7UU0E@LGK6Q9KMLM0
+R15
+o+acc
+R16
+Z53 !s100 h7Zb0Mn:@^0kz0DgG?LN03
+Abehavorial
+R8
+R9
+R10
+R11
+Z54 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 3 mux 0 22 3fi=a7UU0E@LGK6Q9KMLM0
+32
+R19
+R20
+R21
+R22
+l31
+L26
+Z55 V189H7Qn`?VeYhUSagQT0L1
+R15
+o+acc
+R16
+Z56 !s100 bdKZ=`>fTaHT79BD[f7a<2
+Emymem
+Z57 w1430898049
+Z58 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+Z59 DPx4 ieee 15 std_logic_arith 0 22 GJbAT?7@hRQU9IQ702DT]2
+Z60 DPx4 ieee 18 std_logic_unsigned 0 22 hEMVMlaNCR^<OOoVNV;m90
+Z61 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z62 8../myMem.vhd
+Z63 F../myMem.vhd
+l0
+L16
+Z64 V:UjGEB1O?FNEMQA6nDb;Z1
+R15
+32
+o+acc
+R16
+Z65 !s100 P:_GSOF[>FT>deMCYMBU33
+Abehavorial
+R8
+R9
+R10
+R11
+Z66 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 5 mymem 0 22 :UjGEB1O?FNEMQA6nDb;Z1
+32
+R19
+R20
+R21
+R22
+l156
+L23
+Z67 Vk2@mlU5]5@g?JF^b?l8Lz2
+R15
+o+acc
+R16
+Z68 !s100 ]9la6=Fg7z=CdD@CZdcbh3
+Emypc
+Z69 w1430898326
+R58
+R59
+R60
+R61
+Z70 8../myPC.vhd
+Z71 F../myPC.vhd
+l0
+L16
+Z72 VhY;09NVSA3@5kFdBeMlh12
+R15
+32
+o+acc
+R16
+Z73 !s100 UeIa`]dz`VXcX0BhF8`PR0
+Abehavorial
+R8
+R9
+R10
+R11
+Z74 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 4 mypc 0 22 hY;09NVSA3@5kFdBeMlh12
+32
+R19
+R20
+R21
+R22
+l27
+L25
+Z75 VPV4lgJjGAH8GllK78eL9N1
+R15
+o+acc
+R16
+Z76 !s100 P@BWzbC<[mQl[QHzT>za`2
+Epc
+Z77 w1430903290
+R58
+R59
+R60
+R61
+Z78 8../PC.vhd
+Z79 F../PC.vhd
+l0
+L16
+Z80 V=o@aZE50`9g]UkUBGIVkC1
+R15
+32
+o+acc
+R16
+Z81 !s100 PVI7NOdXQHY=^g7ER0[;22
+Abehavorial
+R8
+R9
+R10
+R11
+Z82 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 2 pc 0 22 =o@aZE50`9g]UkUBGIVkC1
+32
+R19
+R20
+R21
+R22
+l27
+L25
+Z83 VXoG^YWb4?W6oBkPa52?<E1
+R15
+o+acc
+R16
+Z84 !s100 7h0GkZcEP[KTQNjhKXC6a2
+Epm
+Z85 w1430917242
+R8
+R9
+R10
+R11
+32
+Z86 8../pm.vhd
+Z87 F../pm.vhd
+l0
+L16
+Z88 VSo8<l;K9fL8cmc[jLkhlI1
+R15
+o+acc
+R16
+Z89 !s100 P9iX3DH0U@T0:amSUm=Oe3
+Abehavorial
+R8
+R9
+R10
+R11
+Z90 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 2 pm 0 22 So8<l;K9fL8cmc[jLkhlI1
+32
+R19
+R20
+R21
+R22
+l290
+L26
+Z91 VIJlGTK@a;S;SWz=giK>5@1
+R15
+o+acc
+R16
+Z92 !s100 E?4nSz[2G2eQbFz:`600l3
+Evhdl2048
+Z93 w1430912199
+R8
+R9
+R10
+R11
+32
+Z94 8../VHDL2048.vhd
+Z95 F../VHDL2048.vhd
+l0
+L16
+Z96 VY9?ORKB272jdSSF8HG8Yd1
+R15
+o+acc
+R16
+Z97 !s100 PRSOfkTM7dYZ[@9_GF6ZL0
+Abehavorial
+R46
+R38
+R54
+R18
+R30
+R82
+R90
+R66
+R74
+R8
+R9
+R10
+R11
+Z98 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 8 vhdl2048 0 22 Y9?ORKB272jdSSF8HG8Yd1
+32
+R19
+R20
+R21
+R22
+l131
+L22
+Z99 V4kSUIcBTj@zl5lz7l`MF31
+R15
+o+acc
+R16
+Z100 !s100 3CU;Q3IB8Vi<eJ9aDJeNA1
+Evhdl2048_tb
+Z101 w1430906418
+R8
+R11
+32
+Z102 8../VHDL2048_tb.vhd
+Z103 F../VHDL2048_tb.vhd
+l0
+L7
+Z104 VPkZW9`h^Mg^OaGSoYDU=a2
+R15
+o+acc
+R16
+Z105 !s100 Ifn`b<OhC;OT]W`zD@nDd0
+Abehavior
+R98
+R8
+R11
+Z106 DEx54 /edu/danjo732/TSEA83/projekt/2048/VHDL2048-simdir/work 11 vhdl2048_tb 0 22 PkZW9`h^Mg^OaGSoYDU=a2
+32
+Z107 Mx2 17 __model_tech/ieee 14 std_logic_1164
+R22
+l26
+L10
+Z108 VeZBgVIIIE?]8T9969BoYU0
+Z109 !s100 1ZQd6fT9V8nbeh^3I>FKQ2
+R15
+o+acc
+R16

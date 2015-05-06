@@ -24,12 +24,12 @@ end k2;
 architecture Behavorial of k2 is 
 	SIGNAL k2_value : STD_LOGIC_VECTOR(7 downto 0);
 	type   k_2     is array (0 to 3)  of STD_LOGIC_VECTOR (7 downto 0);
-	signal k2 : k_2 := (	X"00",
-				X"01",
-				X"02",
-				X"09");
+	signal k2 : k_2 := (	X"03",
+				X"04",
+				X"05",
+				X"07");
 begin
-	process(clk,rst) begin
+	process(clk) begin
 		if rst = '1' then
 			k2_value <= X"00";
 		else

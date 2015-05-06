@@ -15,7 +15,8 @@ use IEEE.numeric_std.ALL;
 
 entity 2048 is
     Port ( 
-    	clk,rst : in  STD_LOGIC);
+    	clk,rst : in  STD_LOGIC
+    	);
 end 2048;
 
 architecture Behavorial of 2048 is
@@ -59,6 +60,7 @@ BEGIN
   	myPC => myPC,
   	myRow => myRow
   );
-		
-		
-end Behavorial;
+    Port ( clk,rst : in  STD_LOGIC;
+           seg: out  STD_LOGIC_VECTOR(7 downto 0);
+           an : out  STD_LOGIC_VECTOR (3 downto 0));
+end 2048;

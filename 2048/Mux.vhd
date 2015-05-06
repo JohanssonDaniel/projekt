@@ -16,10 +16,10 @@ use IEEE.numeric_std.ALL;
 entity MUX is
 	port(
 		clk,rst : in STD_LOGIC;
-		GRx : std_logic_vector(1 downto 0);
+		GRx : in std_logic_vector(1 downto 0);
 		FB : in STD_LOGIC_VECTOR(2 downto 0);
-		BUSSDATA : in STD_LOGIC_VECTOR(15 downto 0);
-		MUXOut : out STD_LOGIC_VECTOR(15 downto 0)
+		BUSS : in STD_LOGIC_VECTOR(15 downto 0);
+		MUX_out : out STD_LOGIC_VECTOR(15 downto 0)
 	);
 end MUX;
 
@@ -30,8 +30,8 @@ architecture Behavorial of MUX is
 	SIGNAL GR3 : STD_LOGIC_VECTOR(15 downto 0);
 begin
 	--MUX
-	process(clk,rst) begin
-		if rising_edge(clk) then
+	process(BUSS) begin
+		--if rising_edge(clk) then
 			if rst='1' then
 				GR0 <= X"0000";
 				GR1 <= X"0000";
@@ -39,20 +39,20 @@ begin
 				GR3 <= X"0000";
 			elsif (FB = "110") then
 				case GRx is
-					when "00" => GR0 <= BUSSDATA;
-					when "01" => GR1 <= BUSSDATA;
-					when "10" => GR2 <= BUSSDATA;
-					when "11" => GR3 <= BUSSDATA;
+					when "00" => GR0 <= BUSS;
+					when "01" => GR1 <= BUSS;
+					when "10" => GR2 <= BUSS;
+					when "11" => GR3 <= BUSS;
 					when others => null;
 				end case;
 			end if;
-		end if;
+		--end if;
 	end process;
 	
 	with GRx select
-	MUXOut <= GR0 when "00", 
-						GR1 when "01", 
-						GR2 when "10", 
-					  GR3 when "11", 
-					  (others => '0') when others;
+	MUX_out <= 	GR0 when "00", 
+			GR1 when "01", 
+			GR2 when "10", 
+			GR3 when "11",
+			(others => '0') when others;
 end Behavorial;

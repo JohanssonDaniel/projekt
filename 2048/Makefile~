@@ -32,10 +32,13 @@
 XILINX_INIT = source /sw/xilinx/ise_12.4i/ISE_DS/settings64.sh;
 PART=xc6slx16-3-csg324
 
-
-lab.%: S=lab.vhd myPC.vhd 
+lab.%: S=lab.vhd myPC.vhd myMem.vhd PC.vhd
 lab.%: T=lab_tb.vhd
 lab.%: U=2048.ucf
+
+VHDL2048.%: S=VHDL2048.vhd myPC.vhd myMem.vhd PC.vhd general_reg.vhd pm.vhd ALU.vhd Mux.vhd
+VHDL2048.%: T=VHDL2048_tb.vhd
+VHDL2048.%: U=2048.ucf
 
 pcReg.%: S=pcReg.vhd
 pcReg.%: T=pcReg_tb.vhd
@@ -52,7 +55,6 @@ myPC.%: U=2048.ucf
 ALU.%: S=ALU.vhd
 ALU.%: T=ALU_tb.vhd
 ALU.%: U=2048.ucf
-
 
 
 # Det här är ett exempel på hur man kan skriva en testbänk som är

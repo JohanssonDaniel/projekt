@@ -63,7 +63,7 @@ BEGIN
   	my_out => my_out
   );
   my_mem : myMem PORT MAP(
-  	my_counter => my_out,
+  	my_out => my_out,
   	my_row => my_row
   );
 		

@@ -26,28 +26,40 @@ end ALU;
 architecture Behavorial of ALU is
 	SIGNAL aluAR : STD_LOGIC_VECTOR(15 downto 0); 
 begin
-	process (clk,rst) begin
-		if rising_edge(clk) then
-			case aluInstruction is
-				when "0001" => aluAR <= BUSS; 
-				when "0011" => aluAR <= "0000000000000000";
-				when "0100" => aluAR <= aluAR + BUSS;
-				when "0101" => aluAR <= aluAR - BUSS;
-				when "0110" => aluAR <= aluAR and BUSS;
-				when "0111" => aluAR <= aluAR or BUSS;
-				when "1000" => aluAR <= aluAR + BUSS; --samma som "0100"
-				when "1001" => 	aluAR(15 downto 12) <=  aluAR(11 downto 8);       		--Logic shift left
-									aluAR(11 downto 8)  <= aluAR(7 downto 4);
-									aluAR(7 downto 4)   <= aluAR(3 downto 0);
-									aluAR(3 downto 0)   <= X"0";
-				when "1011" => 	aluAR(3 downto 0)   <= 	aluAR(7 downto 4);  		--Logic shift right
-									aluAR(7 downto 4)   <= aluAR(11 downto 8);
-									aluAR(11 downto 8)  <= aluAR(15 downto 12);
-									aluAR(15 downto 12) <= X"0";
-				when others => null;
-				end case;
-			end if;
+	process (BUSS) begin
+		--if rising_edge(clk) then
+			if rst = '1' then
+				Z <= '0';
+				N <= '0';
+				C <= '0';
+				V <= '0';
+				--AR <= X"0000";
+				--aluAR <= X"0000";
+			else
+				case aluInstruction is
+					when "0001" => aluAR <= BUSS; 
+					when "0011" => aluAR <= "0000000000000000";
+					when "0100" => aluAR <= aluAR + BUSS;
+					when "0101" => aluAR <= aluAR - BUSS;
+					when "0110" => aluAR <= aluAR and BUSS;
+					when "0111" => aluAR <= aluAR or BUSS;
+					when "1000" => aluAR <= aluAR + BUSS; --samma som "0100"
+				
+					when "1001" => 	aluAR(15 downto 12) <=  aluAR(11 downto 8);       		--Logic shift left
+										aluAR(11 downto 8)  <= aluAR(7 downto 4);
+										aluAR(7 downto 4)   <= aluAR(3 downto 0);
+										aluAR(3 downto 0)   <= X"0";
+				
+					when "1101" => 	aluAR(3 downto 0)   <= 	aluAR(7 downto 4);  		--Logic shift right, 0 shifts in
+										aluAR(7 downto 4)   <= aluAR(11 downto 8);
+										aluAR(11 downto 8)  <= aluAR(15 downto 12);
+										aluAR(15 downto 12) <= X"0";
+					when others => null;
+					end case;
+			--end if;
+		end if;
 	end process;
+	
 	AR <= aluAR;
 end Behavorial;
 	

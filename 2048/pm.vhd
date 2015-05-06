@@ -16,18 +16,16 @@ use IEEE.numeric_std.ALL;
 entity pm is
 	port(
 		clk,rst : in STD_LOGIC;
-		ASR : in STD_LOGIC_VECTOR(7 downto 0);
 		TB : in STD_LOGIC_VECTOR(2 downto 0);
 		FB : in STD_LOGIC_VECTOR(2 downto 0);
 		BUSS : in STD_LOGIC_VECTOR(15 downto 0);
-		ASR_OUT: out STD_LOGIC_VECTOR(7 downto 0);
 		PM_OUT : out STD_LOGIC_VECTOR(15 downto 0)
 	);
 end pm;
 
 architecture Behavorial of pm is 
 		type mem is array (0 to 255) of std_logic_vector(15 downto 0);
-		SIGNAL pm_value : STD_LOGIC_VECTOR(15 downto 0);
+		--SIGNAL pm_value : STD_LOGIC_VECTOR(15 downto 0);
 		signal asr_value : STD_LOGIC_VECTOR(7 downto 0);
 	--lab1upg2 KLISTRA IN
 	
@@ -290,20 +288,21 @@ architecture Behavorial of pm is
 	
 	signal PM : mem := lab1upg2;
 begin
-	process(clk,rst) begin
+	process(BUSS) begin
 		if rst = '1' then
 			pm_out <= X"0000";
+			asr_value <= X"00";
 		elsif TB ="010" then  --SKICKAR VÄRDE FRÅN MINNE TILL BUSS
-			pm_value <= PM(conv_integer(ASR));
+			PM_OUT <= PM(conv_integer(asr_value));
 		elsif FB="010" then		--SKICKAR VÄRDE FRÅN BUSS IN TILL MINNET
-			PM(conv_integer(ASR)) <= BUSS;
+			PM(conv_integer(asr_value)) <= BUSS;
 		elsif FB="111" then		--UPDATERAR ASR
-			asr_value <= std_logic_vector(resize(UNSIGNED(BUSS),ASR'LENGTH));
+			asr_value <= std_logic_vector(resize(UNSIGNED(BUSS),asr_value'LENGTH));
 		end if;
 	end process;
 	
-	ASR_OUT <= asr_value;
-	PM_OUT <= pm_value;
+	--ASR <= asr_value;
+	--PM_OUT <= pm_value;
 	
 end Behavorial;
 	
